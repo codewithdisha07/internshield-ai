@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: internshield-ai
+    runtime: python
+    buildCommand: bash build.sh
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    region: oregon
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: NODE_VERSION
+        value: 20.11.0

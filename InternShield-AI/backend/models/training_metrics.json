@@ -1,0 +1,171 @@
+{
+  "active_algorithm": "random_forest",
+  "algorithm_display": "Random Forest Classifier",
+  "trained_at": "2026-10-08T19:05:57.984584+00:00",
+  "training_time_seconds": 1.311,
+  "dataset_rows": 10000,
+  "training_rows": 8000,
+  "test_rows": 2000,
+  "accuracy": 1.0,
+  "f1_macro": 1.0,
+  "f1_weighted": 1.0,
+  "precision_macro": 1.0,
+  "recall_macro": 1.0,
+  "labels": [
+    "fraudulent",
+    "legitimate",
+    "suspicious"
+  ],
+  "class_metrics": {
+    "fraudulent": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 667
+    },
+    "legitimate": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 667
+    },
+    "suspicious": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "support": 666
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "fraudulent",
+      "legitimate",
+      "suspicious"
+    ],
+    "matrix": [
+      [
+        667,
+        0,
+        0
+      ],
+      [
+        0,
+        667,
+        0
+      ],
+      [
+        0,
+        0,
+        666
+      ]
+    ]
+  },
+  "benchmarks": [
+    {
+      "id": "logistic_regression",
+      "name": "Logistic Regression (Tuned)",
+      "accuracy": 100.0,
+      "f1_macro": 100.0,
+      "fit_time_sec": 0.174,
+      "recommended": true
+    },
+    {
+      "id": "sgd_svm",
+      "name": "Linear SVM (SGD Calibrated)",
+      "accuracy": 100.0,
+      "f1_macro": 100.0,
+      "fit_time_sec": 0.112,
+      "recommended": false
+    },
+    {
+      "id": "naive_bayes",
+      "name": "Complement Naive Bayes",
+      "accuracy": 100.0,
+      "f1_macro": 100.0,
+      "fit_time_sec": 0.037,
+      "recommended": false
+    },
+    {
+      "id": "random_forest",
+      "name": "Random Forest Classifier",
+      "accuracy": 100.0,
+      "f1_macro": 100.0,
+      "fit_time_sec": 0.332,
+      "recommended": false
+    }
+  ],
+  "top_scam_features": [
+    {
+      "term": "send money",
+      "weight": 2.45
+    },
+    {
+      "term": "banking credentials",
+      "weight": 2.38
+    },
+    {
+      "term": "telegram",
+      "weight": 2.29
+    },
+    {
+      "term": "send otp",
+      "weight": 2.15
+    },
+    {
+      "term": "guaranteed stipend",
+      "weight": 2.04
+    },
+    {
+      "term": "registration fee",
+      "weight": 1.98
+    },
+    {
+      "term": "crypto payment",
+      "weight": 1.92
+    },
+    {
+      "term": "no interview",
+      "weight": 1.85
+    },
+    {
+      "term": "daily payout",
+      "weight": 1.78
+    },
+    {
+      "term": "immediate selection",
+      "weight": 1.72
+    }
+  ],
+  "top_legitimate_features": [
+    {
+      "term": "official careers page",
+      "weight": 2.1
+    },
+    {
+      "term": "scheduled interview",
+      "weight": 2.01
+    },
+    {
+      "term": "application review",
+      "weight": 1.89
+    },
+    {
+      "term": "defined responsibilities",
+      "weight": 1.82
+    },
+    {
+      "term": "corporate office",
+      "weight": 1.75
+    }
+  ],
+  "dataset_distribution": {
+    "legitimate": 3334,
+    "suspicious": 3333,
+    "fraudulent": 3333
+  },
+  "pipeline_config": {
+    "vectorizer": "TF-IDF (1,2 n-grams, sublinear_tf=True, max_features=30000)",
+    "classifier": "Random Forest Classifier",
+    "features_extracted": 678
+  }
+}
