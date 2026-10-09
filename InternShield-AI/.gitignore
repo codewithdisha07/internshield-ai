@@ -5,3 +5,5 @@ frontend/dist/
 .env
 *.pyc
 .DS_Store
+backend/client_secret.json
+backend/exports/*.xlsx

@@ -1,0 +1,5 @@
+# Enforce LF endings on shell scripts for Linux deployment (Render/Docker)
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf

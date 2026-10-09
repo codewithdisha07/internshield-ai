@@ -3,6 +3,7 @@ from urllib.parse import urlparse
 import re
 import sqlite3
 from pathlib import Path
+import os
 import secrets
 import json
 import joblib
@@ -68,9 +69,9 @@ GOOGLE_SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly"
 ]
 
-GMAIL_REDIRECT_URI = "http://localhost:8000/api/auth/gmail/callback"
+GMAIL_REDIRECT_URI = os.getenv("GMAIL_REDIRECT_URI", "http://localhost:8000/api/auth/gmail/callback")
 
-FRONTEND_URL = "http://localhost:5173"
+FRONTEND_URL = os.getenv("FRONTEND_URL", "/")
 
 
 # ============================================================
@@ -1012,8 +1013,17 @@ def connectors():
 def gmail_flow(state=None):
 
     if not GOOGLE_CLIENT_SECRET.exists():
+        secret_env = os.getenv("GOOGLE_CLIENT_SECRET_JSON")
+        if secret_env:
+            try:
+                GOOGLE_CLIENT_SECRET.write_text(secret_env.strip(), encoding="utf-8")
+            except Exception as e:
+                print(f"Failed to write GOOGLE_CLIENT_SECRET_JSON: {e}")
+
+    if not GOOGLE_CLIENT_SECRET.exists():
         raise RuntimeError(
-            f"Missing {GOOGLE_CLIENT_SECRET.name} in backend folder"
+            f"Missing {GOOGLE_CLIENT_SECRET.name} in backend folder. "
+            "Please provide backend/client_secret.json or configure GOOGLE_CLIENT_SECRET_JSON in environment variables."
         )
 
     flow = Flow.from_client_secrets_file(

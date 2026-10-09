@@ -1,8 +1,8 @@
 {
-  "active_algorithm": "random_forest",
-  "algorithm_display": "Random Forest Classifier",
-  "trained_at": "2026-10-08T19:05:57.984584+00:00",
-  "training_time_seconds": 1.311,
+  "active_algorithm": "logistic_regression",
+  "algorithm_display": "Logistic Regression (Tuned)",
+  "trained_at": "2026-10-09T17:47:32.729422+00:00",
+  "training_time_seconds": 1.189,
   "dataset_rows": 10000,
   "training_rows": 8000,
   "test_rows": 2000,
@@ -66,7 +66,7 @@
       "name": "Logistic Regression (Tuned)",
       "accuracy": 100.0,
       "f1_macro": 100.0,
-      "fit_time_sec": 0.174,
+      "fit_time_sec": 0.126,
       "recommended": true
     },
     {
@@ -74,7 +74,7 @@
       "name": "Linear SVM (SGD Calibrated)",
       "accuracy": 100.0,
       "f1_macro": 100.0,
-      "fit_time_sec": 0.112,
+      "fit_time_sec": 0.143,
       "recommended": false
     },
     {
@@ -82,7 +82,7 @@
       "name": "Complement Naive Bayes",
       "accuracy": 100.0,
       "f1_macro": 100.0,
-      "fit_time_sec": 0.037,
+      "fit_time_sec": 0.049,
       "recommended": false
     },
     {
@@ -90,72 +90,212 @@
       "name": "Random Forest Classifier",
       "accuracy": 100.0,
       "f1_macro": 100.0,
-      "fit_time_sec": 0.332,
+      "fit_time_sec": 0.326,
       "recommended": false
     }
   ],
   "top_scam_features": [
     {
-      "term": "send money",
-      "weight": 2.45
+      "term": "information",
+      "weight": 1.023
     },
     {
-      "term": "banking credentials",
-      "weight": 2.38
+      "term": "should be",
+      "weight": 0.865
     },
     {
-      "term": "telegram",
-      "weight": 2.29
+      "term": "money",
+      "weight": 0.849
     },
     {
-      "term": "send otp",
-      "weight": 2.15
+      "term": "send",
+      "weight": 0.806
     },
     {
-      "term": "guaranteed stipend",
-      "weight": 2.04
+      "term": "before",
+      "weight": 0.795
     },
     {
-      "term": "registration fee",
-      "weight": 1.98
+      "term": "and application",
+      "weight": 0.791
     },
     {
-      "term": "crypto payment",
-      "weight": 1.92
+      "term": "sharing",
+      "weight": 0.791
     },
     {
-      "term": "no interview",
-      "weight": 1.85
+      "term": "and responsibilities",
+      "weight": 0.791
     },
     {
-      "term": "daily payout",
-      "weight": 1.78
+      "term": "application domain",
+      "weight": 0.791
     },
     {
-      "term": "immediate selection",
-      "weight": 1.72
+      "term": "available",
+      "weight": 0.791
+    },
+    {
+      "term": "verify",
+      "weight": 0.791
+    },
+    {
+      "term": "and should",
+      "weight": 0.791
+    },
+    {
+      "term": "are encouraged",
+      "weight": 0.791
+    },
+    {
+      "term": "be confirmed",
+      "weight": 0.791
+    },
+    {
+      "term": "candidates are",
+      "weight": 0.791
+    },
+    {
+      "term": "available for",
+      "weight": 0.791
+    },
+    {
+      "term": "are",
+      "weight": 0.791
+    },
+    {
+      "term": "before sharing",
+      "weight": 0.791
+    },
+    {
+      "term": "apply quickly",
+      "weight": 0.791
+    },
+    {
+      "term": "verify the",
+      "weight": 0.791
+    },
+    {
+      "term": "the posting",
+      "weight": 0.791
+    },
+    {
+      "term": "encouraged",
+      "weight": 0.791
+    },
+    {
+      "term": "during formal",
+      "weight": 0.791
+    },
+    {
+      "term": "during",
+      "weight": 0.791
+    },
+    {
+      "term": "domain before",
+      "weight": 0.791
     }
   ],
   "top_legitimate_features": [
     {
-      "term": "official careers page",
-      "weight": 2.1
+      "term": "process",
+      "weight": 1.167
     },
     {
-      "term": "scheduled interview",
-      "weight": 2.01
+      "term": "includes",
+      "weight": 1.129
     },
     {
-      "term": "application review",
-      "weight": 1.89
+      "term": "is",
+      "weight": 0.999
     },
     {
-      "term": "defined responsibilities",
-      "weight": 1.82
+      "term": "feedback",
+      "weight": 0.734
     },
     {
-      "term": "corporate office",
-      "weight": 1.75
+      "term": "defined",
+      "weight": 0.731
+    },
+    {
+      "term": "project",
+      "weight": 0.669
+    },
+    {
+      "term": "includes defined",
+      "weight": 0.667
+    },
+    {
+      "term": "includes an",
+      "weight": 0.667
+    },
+    {
+      "term": "required to",
+      "weight": 0.667
+    },
+    {
+      "term": "responsibilities and",
+      "weight": 0.667
+    },
+    {
+      "term": "resume",
+      "weight": 0.667
+    },
+    {
+      "term": "official",
+      "weight": 0.667
+    },
+    {
+      "term": "official careers",
+      "weight": 0.667
+    },
+    {
+      "term": "through the",
+      "weight": 0.667
+    },
+    {
+      "term": "the role",
+      "weight": 0.667
+    },
+    {
+      "term": "the selection",
+      "weight": 0.667
+    },
+    {
+      "term": "in",
+      "weight": 0.667
+    },
+    {
+      "term": "company official",
+      "weight": 0.667
+    },
+    {
+      "term": "and scheduled",
+      "weight": 0.667
+    },
+    {
+      "term": "on",
+      "weight": 0.667
+    },
+    {
+      "term": "supervisor project",
+      "weight": 0.667
+    },
+    {
+      "term": "no payment",
+      "weight": 0.667
+    },
+    {
+      "term": "page",
+      "weight": 0.667
+    },
+    {
+      "term": "defined supervisor",
+      "weight": 0.667
+    },
+    {
+      "term": "careers",
+      "weight": 0.667
     }
   ],
   "dataset_distribution": {
@@ -165,7 +305,7 @@
   },
   "pipeline_config": {
     "vectorizer": "TF-IDF (1,2 n-grams, sublinear_tf=True, max_features=30000)",
-    "classifier": "Random Forest Classifier",
+    "classifier": "Logistic Regression (Tuned)",
     "features_extracted": 678
   }
 }

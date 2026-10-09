@@ -272,3 +272,23 @@ Click **Export Excel** in the top navigation to download an `.xlsx` report conta
 
 5. **What is the significance of the 1-Click Cybercrime Complaint Generator?**
    > *"Most student victims fail to recover defrauded funds because they don't know how to lodge a legal complaint within the 2-hour 'Golden Period' before bank transfers are laundered. Our generator instantly compiles a formal FIR referencing Section 66D of the IT Act and Section 318(4) of the Bharatiya Nyaya Sanhita (BNS), organized with UTR numbers and suspect UPI handles for immediate submission to Helpline 1930 and cybercrime.gov.in."*
+
+---
+
+## Production Deployment on Render
+
+InternShield AI is production-ready for **Render** (Free Tier):
+
+1. **Push your code to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Deploy InternShield AI on Render"
+   git push origin main
+   ```
+2. **Deploy on Render**:
+   - Go to [dashboard.render.com](https://dashboard.render.com/) -> **New +** -> **Blueprint**.
+   - Select your repository (`internshield-ai`).
+   - Render automatically reads [`render.yaml`](render.yaml) to build the frontend, install backend dependencies, train the ML model, and launch the unified FastAPI + React server.
+   - Click **Apply**.
+3. For detailed manual configuration, Docker deployment, and environment variable setup, see the complete [Render Deployment Guide](RENDER_DEPLOY_GUIDE.md).
+

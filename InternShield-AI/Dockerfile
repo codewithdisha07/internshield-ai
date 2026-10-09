@@ -41,4 +41,4 @@ ENV PORT=8000
 ENV PYTHONUNBUFFERED=1
 
 # Start unified FastAPI server
-CMD ["sh", "-c", "cd backend && uvicorn main:app --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "cd backend && uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
