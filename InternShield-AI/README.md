@@ -121,42 +121,6 @@ Open your browser at: `http://localhost:5173`
 
 ---
 
-## Production & Cloud Deployment Guide
-
-InternShield AI is configured as a **unified, self-contained full-stack application**. The FastAPI backend automatically builds and serves the React frontend production bundle (`frontend/dist`) under a single port with zero CORS configuration required.
-
-### Option 1: Free Cloud Deployment on Render (Recommended)
-1. Push this project repository to **GitHub** or **GitLab**.
-2. Log into [render.com](https://render.com) and click **New > Blueprint**.
-3. Select your repository. Render will automatically detect [`render.yaml`](file:///c:/Users/adity/OneDrive/Desktop/New%20folder/Intershiled%20v2/InternShield-AI/render.yaml) and configure:
-   - **Build Command**: `bash build.sh` (builds React, installs Python requirements, pre-trains the ML model)
-   - **Start Command**: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
-4. Click **Apply**. Within 2–3 minutes, your live public URL will be online with HTTPS!
-
-### Option 2: Cloud Deployment on Railway
-1. Go to [railway.app](https://railway.app) and create a **New Project > Deploy from GitHub repo**.
-2. Railway detects [`Procfile`](file:///c:/Users/adity/OneDrive/Desktop/New%20folder/Intershiled%20v2/InternShield-AI/Procfile) and [`build.sh`](file:///c:/Users/adity/OneDrive/Desktop/New%20folder/Intershiled%20v2/InternShield-AI/build.sh).
-3. Set your environment port and deploy.
-
-### Option 3: Docker Container Deployment
-Run with Docker anywhere (AWS, DigitalOcean, GCP, local):
-```bash
-docker build -t internshield-ai .
-docker run -p 8000:8000 internshield-ai
-```
-Or with Docker Compose:
-```bash
-docker-compose up --build -d
-```
-Access at `http://localhost:8000`.
-
-### Option 4: 1-Click Local Production Launcher (Windows)
-Double-click [`run_production.bat`](file:///c:/Users/adity/OneDrive/Desktop/New%20folder/Intershiled%20v2/InternShield-AI/run_production.bat) in the project root:
-- Automatically bundles the React frontend.
-- Installs Python dependencies.
-- Boots the unified server and opens your browser at `http://localhost:8000`.
-
----
 
 ## Live Feature Guide
 
@@ -256,38 +220,6 @@ Click **Export Excel** in the top navigation to download an `.xlsx` report conta
 
 ---
 
-## Viva & Project Presentation Talking Points
-
-1. **Why don't you use OpenAI / Gemini API?**
-   > *"We deliberately chose not to rely on third-party cloud APIs to ensure complete user privacy, offline capability, zero API latency/cost, and to demonstrate authentic machine learning engineering. We built and evaluated our own Scikit-Learn NLP pipeline trained on 10,000 real-world job samples, complete with TF-IDF n-gram vectorization, cross-validation, confusion matrices, and feature coefficient extraction."*
-
-2. **How does the model handle explainability (XAI)?**
-   > *"Rather than acting as a black box, our model uses TF-IDF n-gram feature weights derived from the trained classifier's coefficients. When an offer is scanned, the engine identifies which specific n-grams (e.g. 'registration fee', 'send money', 'telegram') mathematically contributed to the fraud probability and highlights them with their weights for the user."*
-
-3. **What makes the system different from basic keyword matching?**
-   > *"The system uses a hybrid defense engine: a mathematical probabilistic model (trained on 10,000 instances) combined with statutory verification heuristics (MCA CIN regex decoding, GSTIN validation, and domain typosquatting detection). This ensures high precision and prevents false positives on genuine recruitment notices."*
-
-4. **How does the Job Board Overlay Simulator demonstrate real-world impact?**
-   > *"Students interact with job listings directly on LinkedIn, Internshala, and Indeed. Our simulator demonstrates how an active security overlay transparently intercepts predatory listings, tags them with verifiable badges (MCA CIN verified, official corporate domain), and blocks malicious offers before students hand over money or personal data."*
-
-5. **What is the significance of the 1-Click Cybercrime Complaint Generator?**
-   > *"Most student victims fail to recover defrauded funds because they don't know how to lodge a legal complaint within the 2-hour 'Golden Period' before bank transfers are laundered. Our generator instantly compiles a formal FIR referencing Section 66D of the IT Act and Section 318(4) of the Bharatiya Nyaya Sanhita (BNS), organized with UTR numbers and suspect UPI handles for immediate submission to Helpline 1930 and cybercrime.gov.in."*
-
----
-
-## Production Deployment on Render
-
-InternShield AI is production-ready for **Render** (Free Tier):
-
-1. **Push your code to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Deploy InternShield AI on Render"
-   git push origin main
-   ```
-2. **Deploy on Render**:
-   - Go to [dashboard.render.com](https://dashboard.render.com/) -> **New +** -> **Blueprint**.
-   - Select your repository (`internshield-ai`).
    - Render automatically reads [`render.yaml`](render.yaml) to build the frontend, install backend dependencies, train the ML model, and launch the unified FastAPI + React server.
    - Click **Apply**.
 3. For detailed manual configuration, Docker deployment, and environment variable setup, see the complete [Render Deployment Guide](RENDER_DEPLOY_GUIDE.md).
